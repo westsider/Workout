@@ -19,8 +19,11 @@ class Exercises: Object {
     func addInitialDate() {
         
         let realm = try! Realm()
-        
         let allGroups = Data().groups()
+        
+        //MARK: = TODO - if realm empty, add basic exercises - app delagate
+        
+        //MARK: = TODO - checck results in vdl
         
         for each in allGroups {
             let anExercise = Exercises()
@@ -34,5 +37,16 @@ class Exercises: Object {
                 realm.add(anExercise)
             })
         }
+    }
+    
+    func getExercises(debug:Bool)-> Results<Exercises> {
+        let realm = try! Realm()
+        let allExercises = realm.objects(Exercises.self)
+        if ( debug ) {
+            for each in allExercises {
+                print("\(each.group) \(each.type) o\(each.sets) h\(each.reps) l\(each.weight) c\(each.taskID)")
+            }
+        }
+        return allExercises
     }
 }
