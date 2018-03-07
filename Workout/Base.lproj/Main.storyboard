@@ -225,7 +225,7 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wtV-n1-co6">
                                 <rect key="frame" x="20" y="506" width="335" height="75"/>
-                                <color key="backgroundColor" red="0.36159074306488037" green="0.65387040376663208" blue="0.17242151498794556" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="6km-5P-fmh"/>
                                 </constraints>
@@ -254,6 +254,7 @@
                     <connections>
                         <outlet property="tableview" destination="pQp-4r-ZUd" id="hwu-VY-VgV"/>
                         <outlet property="weightLable" destination="E0D-cN-QDA" id="f0K-b8-XK4"/>
+                        <outlet property="workOutComplereBttn" destination="wtV-n1-co6" id="bBV-eg-qMy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rO-e9-HWt" userLabel="First Responder" sceneMemberID="firstResponder"/>
