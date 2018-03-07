@@ -6,10 +6,11 @@
 //  Copyright © 2018 Warren Hansen. All rights reserved.
 //
 // [ ] icon
-// [ ] change weights
-// [ ] keep track of reps
+// [ ] change weights = long press
+// [ ] keep track of sets = slide right
 // [ ] icon of exercise https://makeapppie.com/2015/12/04/how-to-use-custom-table-cells-in-a-uitableview/
-// [ ] add new exercise
+// [ ] add new exercise = + button in upper right
+// [ ] remove exercise = slide left
 
 import UIKit
 

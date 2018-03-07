@@ -64,7 +64,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="753" text="Last Workout Was B on 3 /5/2018" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYN-2Y-SyG">
-                                <rect key="frame" x="0.0" y="421" width="375" height="24"/>
+                                <rect key="frame" x="0.0" y="414" width="375" height="24"/>
                                 <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -80,8 +80,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0y9-SW-2vk" secondAttribute="bottom" id="MtD-5Q-bBx"/>
                             <constraint firstItem="NYN-2Y-SyG" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="OSV-iE-Ej2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="j4P-5Q-fZv" secondAttribute="bottom" constant="2" id="aaY-Cp-80S"/>
-                            <constraint firstItem="HqA-IA-80O" firstAttribute="top" secondItem="NYN-2Y-SyG" secondAttribute="bottom" constant="68" id="adK-LG-pbA"/>
-                            <constraint firstItem="HqA-IA-80O" firstAttribute="top" secondItem="NYN-2Y-SyG" secondAttribute="bottom" constant="68" id="b6R-Kg-c3M"/>
+                            <constraint firstItem="HqA-IA-80O" firstAttribute="top" secondItem="NYN-2Y-SyG" secondAttribute="bottom" constant="75" id="adK-LG-pbA"/>
                             <constraint firstItem="HqA-IA-80O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cZN-R8-9cg"/>
                             <constraint firstItem="0y9-SW-2vk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hZr-Pp-S13"/>
                             <constraint firstItem="bkB-6q-MPg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="148" id="hfr-6j-4DH"/>
