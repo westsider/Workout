@@ -142,7 +142,7 @@ class Exercises: Object {
         guard let lastGroup = results.last?.group else {
             return answer
         }
-        answer = "Last Workout Was \(lastGroup) on \(lastDate)"
+        answer = "Last Workout: \(lastGroup) \n\(Utilities().convertToLocal(date: lastDate))"
         return answer
     }
 }

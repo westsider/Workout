@@ -13,6 +13,7 @@
         <array key="PingFang.ttc">
             <string>PingFangHK-Light</string>
             <string>PingFangHK-Regular</string>
+            <string>PingFangHK-Semibold</string>
         </array>
     </customFonts>
     <scenes>
@@ -35,14 +36,14 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="246" text="How To Beast" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ntb-Vf-pWQ">
-                                <rect key="frame" x="0.0" y="426" width="375" height="0.0"/>
-                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="17"/>
+                                <rect key="frame" x="0.0" y="397" width="375" height="37"/>
+                                <fontDescription key="fontDescription" name="PingFangHK-Semibold" family="PingFang HK" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" text="Workout Tracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BmE-Ay-n2A">
-                                <rect key="frame" x="0.0" y="434" width="375" height="5"/>
-                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="17"/>
+                                <rect key="frame" x="0.0" y="438" width="375" height="27"/>
+                                <fontDescription key="fontDescription" name="PingFangHK-Semibold" family="PingFang HK" pointSize="19"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -74,7 +75,7 @@
                                     <action selector="offDatAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LCE-ax-LKZ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="753" text="Last Workout Was B on 3 /5/2018" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYN-2Y-SyG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="753" text="Last Workout Was B on 3 /5/2018" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYN-2Y-SyG">
                                 <rect key="frame" x="0.0" y="473" width="375" height="24"/>
                                 <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -92,9 +93,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0y9-SW-2vk" secondAttribute="bottom" id="MtD-5Q-bBx"/>
                             <constraint firstItem="NYN-2Y-SyG" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="OSV-iE-Ej2"/>
                             <constraint firstItem="Ntb-Vf-pWQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="SiP-Jf-rYQ"/>
-                            <constraint firstItem="BmE-Ay-n2A" firstAttribute="top" secondItem="Ntb-Vf-pWQ" secondAttribute="bottom" constant="8" id="TWA-cW-KkJ"/>
+                            <constraint firstItem="BmE-Ay-n2A" firstAttribute="top" secondItem="Ntb-Vf-pWQ" secondAttribute="bottom" constant="4" id="TWA-cW-KkJ"/>
                             <constraint firstItem="BmE-Ay-n2A" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VlQ-lh-A9U"/>
-                            <constraint firstItem="NYN-2Y-SyG" firstAttribute="top" secondItem="BmE-Ay-n2A" secondAttribute="bottom" constant="34" id="ZTd-Qc-h70"/>
+                            <constraint firstItem="NYN-2Y-SyG" firstAttribute="top" secondItem="BmE-Ay-n2A" secondAttribute="bottom" constant="8" id="ZTd-Qc-h70"/>
                             <constraint firstItem="BmE-Ay-n2A" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="aBY-z5-dNd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="j4P-5Q-fZv" secondAttribute="bottom" constant="2" id="aaY-Cp-80S"/>
                             <constraint firstItem="HqA-IA-80O" firstAttribute="top" secondItem="NYN-2Y-SyG" secondAttribute="bottom" constant="68" id="adK-LG-pbA"/>
@@ -105,7 +106,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0y9-SW-2vk" secondAttribute="trailing" id="jJX-Km-BvE"/>
                             <constraint firstItem="j4P-5Q-fZv" firstAttribute="top" secondItem="HqA-IA-80O" secondAttribute="bottom" constant="2" id="lQt-Z2-p3j"/>
                             <constraint firstItem="HqA-IA-80O" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="li7-wW-yRI"/>
-                            <constraint firstItem="Ntb-Vf-pWQ" firstAttribute="top" secondItem="bkB-6q-MPg" secondAttribute="bottom" constant="54" id="tb7-jB-J2q"/>
+                            <constraint firstItem="Ntb-Vf-pWQ" firstAttribute="top" secondItem="bkB-6q-MPg" secondAttribute="bottom" constant="25" id="tb7-jB-J2q"/>
                             <constraint firstItem="j4P-5Q-fZv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wuQ-Gd-IiA"/>
                             <constraint firstItem="HqA-IA-80O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zbj-ja-Yqy"/>
                         </constraints>
