@@ -7,29 +7,55 @@
 //
 
 import UIKit
+import RealmSwift
 
-class RepsViewController: UIViewController {
+class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var tableview: UITableView!
+    
+    @IBOutlet weak var weightLable: UILabel!
+    
+    var repsArray:[String] = []
+    var exerciseTitle:String = ""
+    var taskID = ""
+    var task:Exercises?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        task = Exercises().getExerciseBy(taskID: taskID, debug: true)
+        populateTableview()
+        // mark sets done
+        // load weight
+        // change weight
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+   
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return repsArray.count
     }
-    */
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
+        cell.textLabel?.text = repsArray[indexPath.row]
+        return cell
+    }
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return  exerciseTitle
+    }
+    
+    func populateTableview() {
+        
+        if let reps = task?.sets {
+            for i in 1 ... reps {
+                repsArray.append("Set \(i)")
+            }
+        }
+        if let exercise = task?.type {  exerciseTitle = exercise }
+        if let weightFound = task?.weight { weightLable.text = "\(weightFound) lbs" }
+    }
 }

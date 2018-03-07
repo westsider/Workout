@@ -71,6 +71,14 @@ class Exercises: Object {
         return allExercises
     }
     
+    func getExerciseBy(taskID:String, debug:Bool)-> Exercises {
+        let realm = try! Realm()
+        let exercise = realm.objects(Exercises.self).filter("taskID == %@", taskID).last!
+        if ( debug ) {
+            print("\(exercise.date!) \(exercise.group) \(exercise.type) \(exercise.sets) \(exercise.reps) \(exercise.weight) \(exercise.taskID)")
+        }
+        return exercise
+    }
     func getNextWorkoutTxt(debug:Bool)-> String {
         var answer = "Start Workout"
         // get last tate from realm

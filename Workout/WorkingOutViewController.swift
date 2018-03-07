@@ -30,13 +30,14 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
         cell.textLabel?.text = tasks[indexPath.row].type
         cell.detailTextLabel?.text = setDetailForTableview(row: indexPath.row)
+        cell.imageView?.image = #imageLiteral(resourceName: "LegPress")
         if tasksCompleted.contains(indexPath.row) { cell.contentView.backgroundColor = #colorLiteral(red: 0.6610911489, green: 0.8887128234, blue: 0.296472311, alpha: 1) }
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //checkForWorkoutCompleted(row: indexPath.row, debug: false)
-        segueToRepsVC()
+        segueToRepsVC(row: indexPath.row)
     }
     
     func setDetailForTableview(row:Int) -> String {
@@ -57,8 +58,10 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
-    private func segueToRepsVC() {
+    private func segueToRepsVC(row:Int) {
         let myVC:RepsViewController = storyboard?.instantiateViewController(withIdentifier: "RepsVC") as! RepsViewController
+       myVC.taskID = tasks[row].taskID
+        
         navigationController?.pushViewController(myVC, animated: true)
     }
 }
