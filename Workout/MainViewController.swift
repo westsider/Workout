@@ -21,12 +21,16 @@ class MainViewController: UIViewController {
     }
 
     @IBAction func startWorkoutBttnAction(_ sender: Any) {
+        segueToWorkoutVC()
     }
     
     @IBAction func offDatAction(_ sender: Any) {
     }
     
-    
+    private func segueToWorkoutVC() {
+        let myVC:WorkingOutViewController = storyboard?.instantiateViewController(withIdentifier: "WorkoutsVC") as! WorkingOutViewController
+        navigationController?.pushViewController(myVC, animated: true)
+    }
     
 }
 
