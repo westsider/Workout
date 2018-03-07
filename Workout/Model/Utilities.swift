@@ -50,13 +50,8 @@ class Utilities {
     }
     
     func convertToLocal(date:Date)-> String {
-        //date formatter
-        //let dateFormatter = DateFormatter()
         formatter.dateFormat = "MM/dd  h:mm a"
-        // Get current time and format it to compare
-        let currentTime = date
-        let currentTimeStr = formatter.string(from: currentTime)
-        //currentTime = dateFormatter.date(from: currentTimeStr)!
+        let currentTimeStr = formatter.string(from: date)
         return currentTimeStr
     }
 }
