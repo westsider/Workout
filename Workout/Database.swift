@@ -14,17 +14,21 @@ class Exercises: Object {
     @objc dynamic var sets       = 0
     @objc dynamic var reps       = 0
     @objc dynamic var weight     = 0
+    @objc dynamic var date:Date?
     @objc dynamic var taskID     = NSUUID().uuidString
     
     func addInitialDate() {
         
+        //MARK: = TODO - if realm empty, add basic exercises - app delagate
+        let results = getExercises(debug: false)
+        if results.last != nil {
+            return
+        }
+        
+        print("\nWe are adding initial data!\n")
         let realm = try! Realm()
         let allGroups = Data().groups()
-        
-        //MARK: = TODO - if realm empty, add basic exercises - app delagate
-        
-        //MARK: = TODO - checck results in vdl
-        
+
         for each in allGroups {
             let anExercise = Exercises()
             anExercise.group = each.group
@@ -39,6 +43,7 @@ class Exercises: Object {
         }
     }
     
+     //MARK: = TODO - checck results in vdl
     func getExercises(debug:Bool)-> Results<Exercises> {
         let realm = try! Realm()
         let allExercises = realm.objects(Exercises.self)

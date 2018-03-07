@@ -10,16 +10,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet weak var lastWorkoutLable: UILabel!
+    
+    @IBOutlet weak var startWorkoutBttnText: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let results = Exercises().getExercises(debug: true)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func startWorkoutBttnAction(_ sender: Any) {
     }
-
-
+    
+    @IBAction func offDatAction(_ sender: Any) {
+    }
+    
+    
+    
 }
 
