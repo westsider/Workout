@@ -35,7 +35,8 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        checkForWorkoutCompleted(row: indexPath.row, debug: false)
+        //checkForWorkoutCompleted(row: indexPath.row, debug: false)
+        segueToRepsVC()
     }
     
     func setDetailForTableview(row:Int) -> String {
@@ -54,6 +55,11 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
             Exercises().newDateFor(group: tasks.last!.group, debug: false)
             self.navigationController?.popViewController(animated: true)
         }
+    }
+    
+    private func segueToRepsVC() {
+        let myVC:RepsViewController = storyboard?.instantiateViewController(withIdentifier: "RepsVC") as! RepsViewController
+        navigationController?.pushViewController(myVC, animated: true)
     }
 }
 

@@ -157,11 +157,27 @@
                     </view>
                     <connections>
                         <outlet property="tableview" destination="h1o-lq-Qjc" id="awR-Ey-Hc1"/>
+                        <segue destination="Rpj-qr-KWT" kind="presentation" identifier="workOutToReps" id="ROa-Dk-4Pd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zyN-x5-VXK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1138" y="31"/>
+        </scene>
+        <!--Reps View Controller-->
+        <scene sceneID="uFs-Ab-3T9">
+            <objects>
+                <viewController storyboardIdentifier="RepsVC" id="Rpj-qr-KWT" customClass="RepsViewController" customModule="Workout" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CRV-Ba-Ytu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="7V4-Pw-AnA"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1rO-e9-HWt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1833" y="27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8WG-QQ-KvK">

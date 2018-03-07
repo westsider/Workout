@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D0049A4204F922700AD5E98 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0049A3204F922700AD5E98 /* Utilities.swift */; };
+		0D1097132050815600F28EA7 /* RepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1097122050815600F28EA7 /* RepsViewController.swift */; };
 		0D1EBABE204D18070092B351 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1EBABD204D18070092B351 /* AppDelegate.swift */; };
 		0D1EBAC0204D18070092B351 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1EBABF204D18070092B351 /* MainViewController.swift */; };
 		0D1EBAC3204D18070092B351 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D1EBAC1204D18070092B351 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		0D0049A3204F922700AD5E98 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		0D1097122050815600F28EA7 /* RepsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepsViewController.swift; sourceTree = "<group>"; };
 		0D1EBABA204D18070092B351 /* Workout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D1EBABD204D18070092B351 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D1EBABF204D18070092B351 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				0D1EBAC1204D18070092B351 /* Main.storyboard */,
 				0D1EBABF204D18070092B351 /* MainViewController.swift */,
 				0DE1E7D9204F6CA1007E5714 /* WorkingOutViewController.swift */,
+				0D1097122050815600F28EA7 /* RepsViewController.swift */,
 				0DE1E7D0204F67DA007E5714 /* Model */,
 				0D1EBAC7204D18070092B351 /* Assets.xcassets */,
 				0D1EBAC9204D18070092B351 /* LaunchScreen.storyboard */,
@@ -246,6 +249,7 @@
 				0DE1E7DA204F6CA1007E5714 /* WorkingOutViewController.swift in Sources */,
 				0D0049A4204F922700AD5E98 /* Utilities.swift in Sources */,
 				0D1EBAC6204D18070092B351 /* Workout.xcdatamodeld in Sources */,
+				0D1097132050815600F28EA7 /* RepsViewController.swift in Sources */,
 				0D1EBAC0204D18070092B351 /* MainViewController.swift in Sources */,
 				0D1EBABE204D18070092B351 /* AppDelegate.swift in Sources */,
 				0D1EBAD3204D18160092B351 /* Data.swift in Sources */,
