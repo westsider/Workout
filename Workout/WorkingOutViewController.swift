@@ -35,7 +35,7 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        checkForWorkoutCompleted(row: indexPath.row, debug: true)
+        checkForWorkoutCompleted(row: indexPath.row, debug: false)
     }
     
     func setDetailForTableview(row:Int) -> String {
@@ -51,9 +51,7 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
         tableview.reloadData()
         
         if workoutComplete {
-            // save date
             Exercises().newDateFor(group: tasks.last!.group, debug: false)
-            // dismiss vc
             self.navigationController?.popViewController(animated: true)
         }
     }

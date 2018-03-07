@@ -5,6 +5,11 @@
 //  Created by Warren Hansen on 3/4/18.
 //  Copyright © 2018 Warren Hansen. All rights reserved.
 //
+// [ ] icon
+// [ ] change weights
+// [ ] keep track of reps
+// [ ] icon of exercise https://makeapppie.com/2015/12/04/how-to-use-custom-table-cells-in-a-uitableview/
+// [ ] add new exercise
 
 import UIKit
 
@@ -17,6 +22,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Workout Tracker"
     }
     
     override func viewDidAppear(_ animated: Bool) {
