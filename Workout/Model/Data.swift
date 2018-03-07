@@ -23,9 +23,9 @@ class Data {
         var group:[Exercise] = []
         // Group A
         group.append(Exercise(group: "A", type: "BB Squat", sets: 4, reps: 8, weight: 135))
-        group.append(Exercise(group: "A", type: "Ind DB Pressget", sets: 4, reps: 8, weight: 50))
-        group.append(Exercise(group: "A", type: "DB Seal Roe", sets: 4, reps: 8, weight: 40))
-        group.append(Exercise(group: "A", type: "1 Arm Delt Flys", sets: 3, reps: 8, weight: 20))
+        group.append(Exercise(group: "A", type: "Incline DB Press", sets: 4, reps: 8, weight: 50))
+        group.append(Exercise(group: "A", type: "DB Seal Row", sets: 4, reps: 8, weight: 40))
+        group.append(Exercise(group: "A", type: "One Arm Delta Flys", sets: 3, reps: 8, weight: 20))
         group.append(Exercise(group: "A", type: "BB Curls", sets: 3, reps: 12, weight: 55))
         
         // Group B

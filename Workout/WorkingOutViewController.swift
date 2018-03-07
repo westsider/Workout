@@ -11,31 +11,32 @@ import UIKit
 class WorkingOutViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableview: UITableView!
+    var lastWorkoutText:String = ""
+    var startBttnTxt:String = ""
+    
+    var titleArray:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let results = Exercises().getNextWorkout()
+        
+        if let char = results.last?.group {
+            title = "Workout \(char)"
+        }
+        
+        let typeArray: [String] = results.map { (type: Exercises) in
+            return type.type
+        }
+        
+        for each in typeArray {
+            titleArray.append(each)
+        }
+        
+        // todo sets reps weigh in 2nd row
+        // todo clicking on row changes color and sets a counter
+        // if we segue out with counter at 5, give the goup a date
     }
-
-    /* Create a tableview
-     
-     YourStoryboard.storyboard > YouViewController > Attributes inspector > Uncheck - Adjust scroll view insets.
-     -- removes gap at top of tableview
-     
-     drag tableview to VC add constraints
-     +1 prototype cell
-     Control Click on TableViewCell and set identifier to Cell
-     create outlet  @IBOutlet weak var tableView: UITableView!
-     
-     Control Click drag to center = datasource + delegate OR
-     tableview.delegate = self
-     tableview.datasource = self
-     
-     REQUIRED DELEGATES = UITableViewDataSource, UITableViewDelegate
-     */
-    
-    let titleArray = ["AAPL", "GOOG", "MSFT", "SPY"]
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titleArray.count
@@ -49,5 +50,7 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
         
         return cell
     }
+    
+    
 
 }
