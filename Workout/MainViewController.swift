@@ -36,8 +36,8 @@ class MainViewController: UIViewController {
     
     private func segueToWorkoutVC() {
         let myVC:WorkingOutViewController = storyboard?.instantiateViewController(withIdentifier: "WorkoutsVC") as! WorkingOutViewController
-        myVC.lastWorkoutText = lastWorkoutText
-        myVC.startBttnTxt = startBttnTxt
+//        myVC.lastWorkoutText = lastWorkoutText
+//        myVC.startBttnTxt = startBttnTxt
         navigationController?.pushViewController(myVC, animated: true)
     }
     

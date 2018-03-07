@@ -12,10 +12,8 @@ import RealmSwift
 class WorkingOutViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableview: UITableView!
-    var lastWorkoutText:String = ""
-    var startBttnTxt:String = ""
     var tasks = Exercises().getNextWorkout()
-    
+    var tasksCompleted:[Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,17 +28,32 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
-        // for custom cell
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as!StockTableViewCell
         cell.textLabel?.text = tasks[indexPath.row].type
         cell.detailTextLabel?.text = setDetailForTableview(row: indexPath.row)
+        if tasksCompleted.contains(indexPath.row) { cell.contentView.backgroundColor = #colorLiteral(red: 0.6610911489, green: 0.8887128234, blue: 0.296472311, alpha: 1) }
         return cell
     }
 
-    func setDetailForTableview(row:Int) -> String {
-        return"\(tasks[row].sets) Sets \t \(tasks[row].reps) reps\t \(tasks[row].weight) lbs"
-       
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        checkForWorkoutCompleted(row: indexPath.row)
     }
     
+    func setDetailForTableview(row:Int) -> String {
+        return"\(tasks[row].sets) Sets \t \(tasks[row].reps) reps\t \(tasks[row].weight) lbs"
+    }
+    
+    func checkForWorkoutCompleted(row:Int) {
+        tasksCompleted.append(row)
+        debugPrint(tasksCompleted)
+        let allWorkouts = [0, 1, 2, 3, 4]
+        let workoutComplete = tasksCompleted.contains(allWorkouts)
+        print("it's \(workoutComplete) that the workout is complete")
+        tableview.reloadData()
+    }
+}
 
+public extension Sequence where Element : Hashable {
+    func contains(_ elements: [Element]) -> Bool {
+        return Set(elements).isSubset(of:Set(self))
+    }
 }
