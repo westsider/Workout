@@ -43,22 +43,38 @@ class Exercises: Object {
         }
     }
     
+    func newDateFor(group: String, debug:Bool) {
+        let thisWorkout = sortWorkoutBy(group: group)
+        let realm = try! Realm()
+        try! realm.write({
+            for each in thisWorkout {
+                each.date = Date()
+            }
+        })
+        
+        if debug {  let _ = getExercises(debug: debug) }
+    }
+    
      //MARK: = TODO - checck results in vdl
     func getExercises(debug:Bool)-> Results<Exercises> {
         let realm = try! Realm()
         let allExercises = realm.objects(Exercises.self)
         if ( debug ) {
             for each in allExercises {
-                print("\(each.group) \(each.type) o\(each.sets) h\(each.reps) l\(each.weight) c\(each.taskID)")
+                if let date = each.date {
+                    print("\(date) \(each.group) \(each.type) o\(each.sets) h\(each.reps) l\(each.weight) c\(each.taskID)")
+                } else  {
+                    print("no date \(each.group) \(each.type) o\(each.sets) h\(each.reps) l\(each.weight) c\(each.taskID)")
+                }
             }
         }
         return allExercises
     }
     
-    func getNextWorkoutTxt()-> String {
+    func getNextWorkoutTxt(debug:Bool)-> String {
         var answer = "Start Workout"
         // get last tate from realm
-        let results = Exercises().getExercises(debug: true).sorted(byKeyPath: "date", ascending: true)
+        let results = Exercises().getExercises(debug: debug).sorted(byKeyPath: "date", ascending: true)
         
         // if last date nil set workout A to button,
         if results.last?.date == nil {
@@ -87,10 +103,10 @@ class Exercises: Object {
         return Exercises().getExercises(debug: true).filter("group == %@", group)
     }
     
-    func getNextWorkout()-> Results<Exercises>  {
+    func getNextWorkout(debug:Bool)-> Results<Exercises>  {
         var answer = sortWorkoutBy(group: "A")
         // get last tate from realm
-        let results = Exercises().getExercises(debug: true).sorted(byKeyPath: "date", ascending: true)
+        let results = Exercises().getExercises(debug: debug).sorted(byKeyPath: "date", ascending: true)
         
         // if last date nil set workout A to button,
         if results.last?.date == nil {
@@ -111,14 +127,13 @@ class Exercises: Object {
         default:
             answer = sortWorkoutBy(group: "A")
         }
-        
         return answer
     }
     
     func getLastWorkout()-> String {
         var answer = "This is your first workout!"
         // get last tate from realm
-        let results = Exercises().getExercises(debug: true).sorted(byKeyPath: "date", ascending: true)
+        let results = Exercises().getExercises(debug: false).sorted(byKeyPath: "date", ascending: true)
         
         // if last date nil set workout A to button,
         guard let lastDate = results.last?.date else {

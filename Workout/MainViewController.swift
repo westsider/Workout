@@ -30,14 +30,12 @@ class MainViewController: UIViewController {
     func getWorkoutData() {
         lastWorkoutText = Exercises().getLastWorkout()
         lastWorkoutLable.text = lastWorkoutText
-        startBttnTxt = Exercises().getNextWorkoutTxt()
+        startBttnTxt = Exercises().getNextWorkoutTxt(debug: false)
         startWorkoutBttnText.setTitle(startBttnTxt,for: .normal)
     }
     
     private func segueToWorkoutVC() {
         let myVC:WorkingOutViewController = storyboard?.instantiateViewController(withIdentifier: "WorkoutsVC") as! WorkingOutViewController
-//        myVC.lastWorkoutText = lastWorkoutText
-//        myVC.startBttnTxt = startBttnTxt
         navigationController?.pushViewController(myVC, animated: true)
     }
     

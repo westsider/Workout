@@ -12,7 +12,7 @@ import RealmSwift
 class WorkingOutViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableview: UITableView!
-    var tasks = Exercises().getNextWorkout()
+    var tasks = Exercises().getNextWorkout(debug: false)
     var tasksCompleted:[Int] = []
     
     override func viewDidLoad() {
@@ -35,20 +35,26 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        checkForWorkoutCompleted(row: indexPath.row)
+        checkForWorkoutCompleted(row: indexPath.row, debug: false)
     }
     
     func setDetailForTableview(row:Int) -> String {
         return"\(tasks[row].sets) Sets \t \(tasks[row].reps) reps\t \(tasks[row].weight) lbs"
     }
     
-    func checkForWorkoutCompleted(row:Int) {
+    func checkForWorkoutCompleted(row:Int, debug:Bool) {
         tasksCompleted.append(row)
-        debugPrint(tasksCompleted)
+        if debug { debugPrint(tasksCompleted) }
         let allWorkouts = [0, 1, 2, 3, 4]
         let workoutComplete = tasksCompleted.contains(allWorkouts)
-        print("it's \(workoutComplete) that the workout is complete")
+        if debug { print("it's \(workoutComplete) that the workout is complete") }
         tableview.reloadData()
+        
+        if workoutComplete {
+            // save date
+            Exercises().newDateFor(group: tasks.last!.group, debug: false)
+            // dismiss vc 
+        }
     }
 }
 
