@@ -27,7 +27,7 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         task = Exercises().getExerciseBy(taskID: taskID, debug: true)
         populateTableview()
-        // mark exercise donr in database
+        // mark exercise done in database
         // change weight
     }
     
@@ -66,6 +66,7 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
             print("Sets complete")
             workOutComplereBttn.setTitle("Workout Complete",for: .normal)
             workOutComplereBttn.backgroundColor = #colorLiteral(red: 0.3615907431, green: 0.6538704038, blue: 0.172421515, alpha: 1)
+            Exercises().newDateFor(taskID: taskID, debug: true)
         }
     }
     

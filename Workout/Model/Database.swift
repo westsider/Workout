@@ -55,6 +55,16 @@ class Exercises: Object {
         if debug {  let _ = getExercises(debug: debug) }
     }
     
+    func newDateFor(taskID: String, debug:Bool) {
+        let realm = try! Realm()
+        let exercise = realm.objects(Exercises.self).filter("taskID == %@", taskID).last!
+        try! realm.write({
+            exercise.date = Date()
+        })
+        
+        if debug {  let _ = getExercises(debug: debug) }
+    }
+    
      //MARK: = TODO - checck results in vdl
     func getExercises(debug:Bool)-> Results<Exercises> {
         let realm = try! Realm()
