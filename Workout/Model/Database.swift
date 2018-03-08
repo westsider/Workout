@@ -15,11 +15,11 @@ class Exercises: Object {
     @objc dynamic var reps       = 0
     @objc dynamic var weight     = 0
     @objc dynamic var date:Date?
+    @objc dynamic var amTraining = false
     @objc dynamic var taskID     = NSUUID().uuidString
     
     func addInitialDate() {
         
-        //MARK: = TODO - if realm empty, add basic exercises - app delagate
         let results = getExercises(debug: false)
         if results.last != nil {
             return
@@ -43,23 +43,26 @@ class Exercises: Object {
         }
     }
     
-    func newDateFor(group: String, debug:Bool) {
+    func clearAmTrainingFromGroup(group: String, debug:Bool) {
         let thisWorkout = sortWorkoutBy(group: group)
         let realm = try! Realm()
         try! realm.write({
             for each in thisWorkout {
                 each.date = Date()
+                each.amTraining = false
             }
         })
-        
         if debug {  let _ = getExercises(debug: debug) }
     }
     
-    func newDateFor(taskID: String, debug:Bool) {
+    func newDateFor(taskID: String, amTraining:Bool, debug:Bool) {
         let realm = try! Realm()
         let exercise = realm.objects(Exercises.self).filter("taskID == %@", taskID).last!
         try! realm.write({
             exercise.date = Date()
+            if amTraining {
+                exercise.amTraining = amTraining
+            }
         })
         
         if debug {  let _ = getExercises(debug: debug) }
@@ -85,36 +88,13 @@ class Exercises: Object {
         let realm = try! Realm()
         let exercise = realm.objects(Exercises.self).filter("taskID == %@", taskID).last!
         if ( debug ) {
-            print("\(exercise.date!) \(exercise.group) \(exercise.type) \(exercise.sets) \(exercise.reps) \(exercise.weight) \(exercise.taskID)")
+            if let date = exercise.date {
+                print("\(date) \(exercise.group) \(exercise.type) \(exercise.sets) \(exercise.reps) \(exercise.weight) \(exercise.taskID)")
+            } else  {
+                print("No Date \(exercise.group) \(exercise.type) \(exercise.sets) \(exercise.reps) \(exercise.weight) \(exercise.taskID)")
+            }
         }
         return exercise
-    }
-    func getNextWorkoutTxt(debug:Bool)-> String {
-        var answer = "Start Workout"
-        // get last tate from realm
-        let results = Exercises().getExercises(debug: debug).sorted(byKeyPath: "date", ascending: true)
-        
-        // if last date nil set workout A to button,
-        if results.last?.date == nil {
-            return "Start Workout A"
-        }
-        // else last date
-        guard let lastGroup = results.last?.group else {
-            return answer
-        }
-        
-        switch lastGroup {
-        case "A":
-            answer += " B"
-        case "B":
-            answer += " C"
-        case "C":
-            answer += " A"
-        default:
-            answer += " A"
-        }
-        
-        return answer
     }
     
     func sortWorkoutBy(group:String) -> Results<Exercises> {
@@ -130,7 +110,20 @@ class Exercises: Object {
         if results.last?.date == nil {
             return sortWorkoutBy(group: "A")
         }
-        // else last date
+        
+        // else if amTraining filter group that is trining
+        let amTraining: [Bool] = results.map { (amTraining: Exercises) in
+            return amTraining.amTraining
+        }
+        if amTraining.contains(true) {
+            let results = Exercises().getExercises(debug: debug).sorted(byKeyPath: "date", ascending: true).filter("amTraining == %@", true)
+            if let thisGroup = results.last?.group {
+                return sortWorkoutBy(group: thisGroup)
+            }
+        }
+        
+        
+        // else if all dates match we are starting a new workout...
         guard let lastGroup = results.last?.group else {
             return sortWorkoutBy(group: "A")
         }

@@ -232,6 +232,9 @@
                                 <state key="normal" title="Workout Not Complete Yet">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="workoutCompletedAction:" destination="Rpj-qr-KWT" eventType="touchUpInside" id="of7-6k-7Qf"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

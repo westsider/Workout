@@ -22,14 +22,21 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var taskID = ""
     var task:Exercises?
     var tasksCompleted:[Int] = []
+    var exercisesCompleted:[Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         task = Exercises().getExerciseBy(taskID: taskID, debug: true)
         populateTableview()
-        // mark exercise done in database
+       
         // change weight
     }
+    
+    @IBAction func workoutCompletedAction(_ sender: Any) {
+        checkIfAllExercisesComplete(debug:true)
+        
+    }
+    
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repsIntArray.count
@@ -66,8 +73,30 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
             print("Sets complete")
             workOutComplereBttn.setTitle("Workout Complete",for: .normal)
             workOutComplereBttn.backgroundColor = #colorLiteral(red: 0.3615907431, green: 0.6538704038, blue: 0.172421515, alpha: 1)
-            Exercises().newDateFor(taskID: taskID, debug: true)
+            Exercises().newDateFor(taskID: taskID, amTraining: true, debug: true)
         }
+    }
+    
+    func checkIfAllExercisesComplete(debug:Bool) {
+        let allWorkouts = [0, 1, 2, 3, 4]
+        let workoutComplete = exercisesCompleted.contains(allWorkouts)
+        if debug { print("it's \(workoutComplete) that the workout is complete") }
+        tableview.reloadData()
+        
+        if workoutComplete {
+            // Exercises().newDateFor(group: tasks.last!.group, debug: false)
+            segueMainVC()
+        } else {
+            segueToWorkoutVC()
+        }
+    }
+    
+    private func segueMainVC() {
+        let myVC:MainViewController = storyboard?.instantiateViewController(withIdentifier: "workoutVC") as! MainViewController
+        
+        // clear amTraining from this group
+        Exercises().clearAmTrainingFromGroup(group: (task?.group)!, debug: true)
+        navigationController?.pushViewController(myVC, animated: true)
     }
     
     func populateTableview() {
@@ -79,6 +108,13 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         if let exercise = task?.type {  exerciseTitle = exercise }
         if let weightFound = task?.weight { weightLable.text = "\(weightFound) lbs" }
+    }
+    
+    
+    private func segueToWorkoutVC() {
+        let myVC:WorkingOutViewController = storyboard?.instantiateViewController(withIdentifier: "WorkoutsVC") as! WorkingOutViewController
+        myVC.exercisesCompleted = exercisesCompleted
+        navigationController?.pushViewController(myVC, animated: true)
     }
 }
 

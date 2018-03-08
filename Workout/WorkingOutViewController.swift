@@ -13,13 +13,18 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
 
     @IBOutlet weak var tableview: UITableView!
     var tasks = Exercises().getNextWorkout(debug: false)
-    var tasksCompleted:[Int] = []
+    var exercisesCompleted:[Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let group = tasks.last?.group {
             title = "Workout \(group)"
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // reload tableview?
+        //checkIfAllExercisesComplete(debug:true)
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,12 +36,12 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
         cell.textLabel?.text = tasks[indexPath.row].type
         cell.detailTextLabel?.text = setDetailForTableview(row: indexPath.row)
         cell.imageView?.image = #imageLiteral(resourceName: "LegPress")
-        if tasksCompleted.contains(indexPath.row) { cell.contentView.backgroundColor = #colorLiteral(red: 0.6610911489, green: 0.8887128234, blue: 0.296472311, alpha: 1) }
+        if exercisesCompleted.contains(indexPath.row) { cell.contentView.backgroundColor = #colorLiteral(red: 0.6610911489, green: 0.8887128234, blue: 0.296472311, alpha: 1) }
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //checkForWorkoutCompleted(row: indexPath.row, debug: false)
+        updateTasksCompleted(row: indexPath.row, debug: false)
         segueToRepsVC(row: indexPath.row)
     }
     
@@ -44,24 +49,35 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
         return"\(tasks[row].sets) Sets \t \(tasks[row].reps) reps\t \(tasks[row].weight) lbs"
     }
     
-    func checkForWorkoutCompleted(row:Int, debug:Bool) {
-        tasksCompleted.append(row)
-        if debug { debugPrint(tasksCompleted) }
+    func updateTasksCompleted(row:Int, debug:Bool) {
+        exercisesCompleted.append(row)
+//        checkIfAllExercisesComplete(debug: debug)
+//        if debug { debugPrint(exercisesCompleted) }
+        
+    }
+    
+    func checkIfAllExercisesComplete(debug:Bool) {
         let allWorkouts = [0, 1, 2, 3, 4]
-        let workoutComplete = tasksCompleted.contains(allWorkouts)
+        let workoutComplete = exercisesCompleted.contains(allWorkouts)
         if debug { print("it's \(workoutComplete) that the workout is complete") }
         tableview.reloadData()
         
         if workoutComplete {
-            Exercises().newDateFor(group: tasks.last!.group, debug: false)
-            self.navigationController?.popViewController(animated: true)
+           // Exercises().newDateFor(group: tasks.last!.group, debug: false)
+           segueMainVC()
         }
+    }
+    
+    private func segueMainVC() {
+        let myVC:MainViewController = storyboard?.instantiateViewController(withIdentifier: "workoutVC") as! MainViewController
+       
+        navigationController?.pushViewController(myVC, animated: true)
     }
     
     private func segueToRepsVC(row:Int) {
         let myVC:RepsViewController = storyboard?.instantiateViewController(withIdentifier: "RepsVC") as! RepsViewController
        myVC.taskID = tasks[row].taskID
-        
+        myVC.exercisesCompleted = exercisesCompleted
         navigationController?.pushViewController(myVC, animated: true)
     }
 }

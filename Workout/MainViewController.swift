@@ -40,7 +40,9 @@ class MainViewController: UIViewController {
     func getWorkoutData() {
         lastWorkoutText = Exercises().getLastWorkout()
         lastWorkoutLable.text = lastWorkoutText
-        startBttnTxt = Exercises().getNextWorkoutTxt(debug: false)
+        if let thisGroup = Exercises().getNextWorkout(debug: false).last?.group {
+            startBttnTxt = "Start Workout \(thisGroup)"
+        }
         startWorkoutBttnText.setTitle(startBttnTxt,for: .normal)
     }
     
