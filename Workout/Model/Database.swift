@@ -97,6 +97,14 @@ class Exercises: Object {
         return exercise
     }
     
+    func changeWeightFor(taskID:String, to:Int) {
+        let realm = try! Realm()
+        let thisExercise = getExerciseBy(taskID: taskID, debug: true)
+        try! realm.write({
+            thisExercise.weight = to
+        })
+    }
+    
     func sortWorkoutBy(group:String) -> Results<Exercises> {
         return Exercises().getExercises(debug: true).filter("group == %@", group)
     }

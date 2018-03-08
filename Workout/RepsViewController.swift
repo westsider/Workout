@@ -14,7 +14,9 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var weightLable: UILabel!
     @IBOutlet weak var workOutComplereBttn: UIButton!
+    @IBOutlet weak var stepper: UIStepper!
     
+    //var pastValue = 0
     
     //var repsArray:[String] = []
     var repsIntArray:[Int] = []
@@ -28,13 +30,22 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         task = Exercises().getExerciseBy(taskID: taskID, debug: true)
         populateTableview()
-       
-        // change weight
+        stepper.value = Double((task?.weight)!)
     }
     
     @IBAction func workoutCompletedAction(_ sender: Any) {
         checkIfAllExercisesComplete(debug:true)
         
+    }
+    
+    @IBAction func stepperChanger(_ sender: UIStepper) {
+        
+        let currentVaue = Int(sender.value)
+        //currentVaue += pastValue
+        //let  newWeight = currentVaue + (task?.weight)!
+        print("stepper is \(currentVaue)")
+        Exercises().changeWeightFor(taskID: taskID, to: currentVaue)
+        weightLable.text = "\(currentVaue) lbs"
     }
     
     

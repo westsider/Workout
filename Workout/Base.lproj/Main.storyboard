@@ -208,9 +208,12 @@
                                         <color key="textColor" red="0.37353032829999999" green="0.66561210159999995" blue="0.17471197250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="nfw-Bn-6Hv">
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" continuous="NO" autorepeat="NO" minimumValue="-1000" maximumValue="1000" stepValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="nfw-Bn-6Hv">
                                         <rect key="frame" x="114.5" y="0.0" width="94" height="29"/>
                                         <color key="tintColor" red="0.34543728829999998" green="0.64212602379999995" blue="0.1643179357" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="stepperChanger:" destination="Rpj-qr-KWT" eventType="valueChanged" id="qiU-Ir-59K"/>
+                                        </connections>
                                     </stepper>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="180 lbs" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0D-cN-QDA">
                                         <rect key="frame" x="228.5" y="0.0" width="106.5" height="40"/>
@@ -255,6 +258,7 @@
                         <viewLayoutGuide key="safeArea" id="7V4-Pw-AnA"/>
                     </view>
                     <connections>
+                        <outlet property="stepper" destination="nfw-Bn-6Hv" id="FSU-Gr-qlD"/>
                         <outlet property="tableview" destination="pQp-4r-ZUd" id="hwu-VY-VgV"/>
                         <outlet property="weightLable" destination="E0D-cN-QDA" id="f0K-b8-XK4"/>
                         <outlet property="workOutComplereBttn" destination="wtV-n1-co6" id="bBV-eg-qMy"/>
