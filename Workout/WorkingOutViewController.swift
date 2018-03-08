@@ -22,11 +22,6 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        // reload tableview?
-        //checkIfAllExercisesComplete(debug:true)
-    }
-    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count
     }
@@ -51,9 +46,6 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
     
     func updateTasksCompleted(row:Int, debug:Bool) {
         exercisesCompleted.append(row)
-//        checkIfAllExercisesComplete(debug: debug)
-//        if debug { debugPrint(exercisesCompleted) }
-        
     }
     
     func checkIfAllExercisesComplete(debug:Bool) {

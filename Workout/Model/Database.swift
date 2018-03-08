@@ -130,7 +130,6 @@ class Exercises: Object {
             }
         }
         
-        
         // else if all dates match we are starting a new workout...
         guard let lastGroup = results.last?.group else {
             return sortWorkoutBy(group: "A")

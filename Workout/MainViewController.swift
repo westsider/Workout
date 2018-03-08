@@ -6,11 +6,8 @@
 //  Copyright © 2018 Warren Hansen. All rights reserved.
 //
 
-// [ ] change weights = long press
-
 // [ ] icon of exercise https://makeapppie.com/2015/12/04/how-to-use-custom-table-cells-in-a-uitableview/
-// [ ] add new exercise = + button in upper right
-// [ ] remove exercise = slide left
+
 
 import UIKit
 

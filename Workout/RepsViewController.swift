@@ -15,10 +15,7 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var weightLable: UILabel!
     @IBOutlet weak var workOutComplereBttn: UIButton!
     @IBOutlet weak var stepper: UIStepper!
-    
-    //var pastValue = 0
-    
-    //var repsArray:[String] = []
+
     var repsIntArray:[Int] = []
     var exerciseTitle:String = ""
     var taskID = ""
@@ -35,14 +32,11 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func workoutCompletedAction(_ sender: Any) {
         checkIfAllExercisesComplete(debug:true)
-        
     }
     
     @IBAction func stepperChanger(_ sender: UIStepper) {
         
         let currentVaue = Int(sender.value)
-        //currentVaue += pastValue
-        //let  newWeight = currentVaue + (task?.weight)!
         print("stepper is \(currentVaue)")
         Exercises().changeWeightFor(taskID: taskID, to: currentVaue)
         weightLable.text = "\(currentVaue) lbs"
@@ -95,7 +89,6 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableview.reloadData()
         
         if workoutComplete {
-            // Exercises().newDateFor(group: tasks.last!.group, debug: false)
             segueMainVC()
         } else {
             segueToWorkoutVC()
@@ -104,7 +97,6 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     private func segueMainVC() {
         let myVC:MainViewController = storyboard?.instantiateViewController(withIdentifier: "workoutVC") as! MainViewController
-        
         // clear amTraining from this group
         Exercises().clearAmTrainingFromGroup(group: (task?.group)!, debug: true)
         navigationController?.pushViewController(myVC, animated: true)
