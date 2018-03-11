@@ -16,6 +16,7 @@
 		0D1EBAC8204D18070092B351 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D1EBAC7204D18070092B351 /* Assets.xcassets */; };
 		0D1EBACB204D18070092B351 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D1EBAC9204D18070092B351 /* LaunchScreen.storyboard */; };
 		0D1EBAD3204D18160092B351 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1EBAD2204D18160092B351 /* Data.swift */; };
+		0D95EAE62055B3F600252AE2 /* Videos in Resources */ = {isa = PBXBuildFile; fileRef = 0D95EAE52055B3F600252AE2 /* Videos */; };
 		0DE1E7D4204F6919007E5714 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE1E7D3204F6918007E5714 /* Database.swift */; };
 		0DE1E7DA204F6CA1007E5714 /* WorkingOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE1E7D9204F6CA1007E5714 /* WorkingOutViewController.swift */; };
 		1647739EF77713E5F4E895A9 /* Pods_Workout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F149240B08B7532CB749ED8 /* Pods_Workout.framework */; };
@@ -33,6 +34,7 @@
 		0D1EBACA204D18070092B351 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D1EBACC204D18070092B351 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D1EBAD2204D18160092B351 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		0D95EAE52055B3F600252AE2 /* Videos */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Videos; sourceTree = "<group>"; };
 		0DE1E7D3204F6918007E5714 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		0DE1E7D9204F6CA1007E5714 /* WorkingOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingOutViewController.swift; sourceTree = "<group>"; };
 		2F149240B08B7532CB749ED8 /* Pods_Workout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Workout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +57,7 @@
 		0D1EBAB1204D18070092B351 = {
 			isa = PBXGroup;
 			children = (
+				0D95EAE52055B3F600252AE2 /* Videos */,
 				0D1EBABC204D18070092B351 /* Workout */,
 				0D1EBABB204D18070092B351 /* Products */,
 				60C986558B68815CF65F5EA4 /* Pods */,
@@ -179,6 +182,7 @@
 				0D1EBACB204D18070092B351 /* LaunchScreen.storyboard in Resources */,
 				0D1EBAC8204D18070092B351 /* Assets.xcassets in Resources */,
 				0D1EBAC3204D18070092B351 /* Main.storyboard in Resources */,
+				0D95EAE62055B3F600252AE2 /* Videos in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

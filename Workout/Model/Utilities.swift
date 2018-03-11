@@ -10,8 +10,7 @@ import Foundation
 import RealmSwift
 
 class Utilities {
-    
-    //MARK: - Date util
+
     let formatter = DateFormatter()
     let today = Date()
     

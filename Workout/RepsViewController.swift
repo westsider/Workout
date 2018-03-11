@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import AVKit
 
 class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -42,6 +43,17 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         weightLable.text = "\(currentVaue) lbs"
     }
     
+    func playVideo() {
+        if let path = Bundle.main.path(forResource: "Video", ofType: "mp4") {
+            let video = AVPlayer(url: URL(fileURLWithPath: path))
+            let videoPlayer = AVPlayerViewController()
+            videoPlayer.player = video
+            
+            present(videoPlayer, animated: true, completion: {
+                video.play()
+            })
+        }
+    }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repsIntArray.count
@@ -112,7 +124,6 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if let exercise = task?.type {  exerciseTitle = exercise }
         if let weightFound = task?.weight { weightLable.text = "\(weightFound) lbs" }
     }
-    
     
     private func segueToWorkoutVC() {
         let myVC:WorkingOutViewController = storyboard?.instantiateViewController(withIdentifier: "WorkoutsVC") as! WorkingOutViewController
