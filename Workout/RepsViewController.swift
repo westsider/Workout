@@ -10,8 +10,11 @@ import UIKit
 import RealmSwift
 import AVKit
 
-class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var player: AVPlayer?
+    @IBOutlet weak var videoViewContainer: UIView!
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var weightLable: UILabel!
     @IBOutlet weak var workOutComplereBttn: UIButton!
@@ -29,6 +32,7 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         task = Exercises().getExerciseBy(taskID: taskID, debug: true)
         populateTableview()
         stepper.value = Double((task?.weight)!)
+        initializeVideoPlayerWithVideo()
     }
     
     @IBAction func workoutCompletedAction(_ sender: Any) {
@@ -43,8 +47,38 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         weightLable.text = "\(currentVaue) lbs"
     }
     
+    @IBAction func playVideoButtonTapped(_ sender: Any) {
+        player?.play()
+    }
+    
+    
+    func initializeVideoPlayerWithVideo() {
+        
+        // get the path string for the video from assets
+        let videoString:String? = Bundle.main.path(forResource: "Videos/workoutA/1_ArmDeltFly", ofType: "mp4")
+        guard let unwrappedVideoPath = videoString else {return}
+        
+        // convert the path string to a url
+        let videoUrl = URL(fileURLWithPath: unwrappedVideoPath)
+        
+        // initialize the video player with the url
+        self.player = AVPlayer(url: videoUrl)
+        
+        // create a video layer for the player
+        let layer: AVPlayerLayer = AVPlayerLayer(player: player)
+        
+        // make the layer the same size as the container view
+        layer.frame = videoViewContainer.bounds
+        
+        // make the video fill the layer as much as possible while keeping its aspect size
+        layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        
+        // add the layer to the container view
+        videoViewContainer.layer.addSublayer(layer)
+    }
+    
     func playVideo() {
-        if let path = Bundle.main.path(forResource: "Video", ofType: "mp4") {
+        if let path = Bundle.main.path(forResource: "Videos/workoutA/1_ArmDeltFly", ofType: "mp4") {
             let video = AVPlayer(url: URL(fileURLWithPath: path))
             let videoPlayer = AVPlayerViewController()
             videoPlayer.player = video

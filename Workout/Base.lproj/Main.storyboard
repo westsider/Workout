@@ -172,12 +172,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LegPress" translatesAutoresizingMaskIntoConstraints="NO" id="G4n-FL-boq">
-                                <rect key="frame" x="67" y="40" width="240" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSB-GY-oL0">
+                                <rect key="frame" x="67" y="20" width="240" height="128"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="mfy-O5-nnb"/>
+                                    <constraint firstAttribute="height" constant="128" id="mdZ-oK-jtK"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pQp-4r-ZUd">
                                 <rect key="frame" x="0.0" y="176" width="375" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -239,27 +240,41 @@
                                     <action selector="workoutCompletedAction:" destination="Rpj-qr-KWT" eventType="touchUpInside" id="of7-6k-7Qf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gzy-0W-Mlx">
+                                <rect key="frame" x="20" y="69" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="R5Z-cs-PAw"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="ZDz-Fc-74e"/>
+                                </constraints>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playVideoButtonTapped:" destination="Rpj-qr-KWT" eventType="touchUpInside" id="kfa-LA-rFm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Ca-Zd-9Eh" firstAttribute="leading" secondItem="7V4-Pw-AnA" secondAttribute="leading" constant="20" id="57N-QX-dVI"/>
                             <constraint firstItem="wtV-n1-co6" firstAttribute="leading" secondItem="7V4-Pw-AnA" secondAttribute="leading" constant="20" id="5gO-jx-imL"/>
+                            <constraint firstItem="Gzy-0W-Mlx" firstAttribute="leading" secondItem="7V4-Pw-AnA" secondAttribute="leading" constant="20" id="647-OH-QOF"/>
                             <constraint firstItem="7V4-Pw-AnA" firstAttribute="trailing" secondItem="wtV-n1-co6" secondAttribute="trailing" constant="20" id="CqH-nS-ujW"/>
                             <constraint firstItem="7V4-Pw-AnA" firstAttribute="trailing" secondItem="6Ca-Zd-9Eh" secondAttribute="trailing" constant="20" id="HLD-Jk-L2o"/>
-                            <constraint firstItem="G4n-FL-boq" firstAttribute="leading" secondItem="7V4-Pw-AnA" secondAttribute="leading" constant="67" id="TKk-6y-zLw"/>
+                            <constraint firstItem="7V4-Pw-AnA" firstAttribute="trailing" secondItem="aSB-GY-oL0" secondAttribute="trailing" constant="68" id="HRR-Sz-ra7"/>
                             <constraint firstItem="6Ca-Zd-9Eh" firstAttribute="top" secondItem="pQp-4r-ZUd" secondAttribute="bottom" constant="20" id="U3h-oV-jp8"/>
                             <constraint firstItem="wtV-n1-co6" firstAttribute="top" secondItem="6Ca-Zd-9Eh" secondAttribute="bottom" constant="20" id="dMA-cE-rHn"/>
                             <constraint firstItem="pQp-4r-ZUd" firstAttribute="leading" secondItem="7V4-Pw-AnA" secondAttribute="leading" id="dXi-3I-cN8"/>
-                            <constraint firstItem="pQp-4r-ZUd" firstAttribute="top" secondItem="G4n-FL-boq" secondAttribute="bottom" constant="8" id="dhl-2R-iLY"/>
-                            <constraint firstItem="G4n-FL-boq" firstAttribute="top" secondItem="7V4-Pw-AnA" secondAttribute="top" constant="20" id="fj9-II-Tc9"/>
-                            <constraint firstItem="7V4-Pw-AnA" firstAttribute="trailing" secondItem="G4n-FL-boq" secondAttribute="trailing" constant="68" id="gfY-xg-deU"/>
+                            <constraint firstItem="aSB-GY-oL0" firstAttribute="leading" secondItem="Gzy-0W-Mlx" secondAttribute="trailing" constant="17" id="fPe-EV-1zY"/>
+                            <constraint firstItem="Gzy-0W-Mlx" firstAttribute="top" secondItem="7V4-Pw-AnA" secondAttribute="top" constant="49" id="k0H-sR-yfj"/>
+                            <constraint firstItem="aSB-GY-oL0" firstAttribute="top" secondItem="7V4-Pw-AnA" secondAttribute="top" id="qNh-qI-xoi"/>
                             <constraint firstItem="pQp-4r-ZUd" firstAttribute="trailing" secondItem="7V4-Pw-AnA" secondAttribute="trailing" id="vVY-73-Ht0"/>
+                            <constraint firstItem="pQp-4r-ZUd" firstAttribute="top" secondItem="aSB-GY-oL0" secondAttribute="bottom" constant="28" id="wGP-im-Umu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7V4-Pw-AnA"/>
                     </view>
                     <connections>
                         <outlet property="stepper" destination="nfw-Bn-6Hv" id="FSU-Gr-qlD"/>
                         <outlet property="tableview" destination="pQp-4r-ZUd" id="hwu-VY-VgV"/>
+                        <outlet property="videoViewContainer" destination="aSB-GY-oL0" id="ykR-bC-lDW"/>
                         <outlet property="weightLable" destination="E0D-cN-QDA" id="f0K-b8-XK4"/>
                         <outlet property="workOutComplereBttn" destination="wtV-n1-co6" id="bBV-eg-qMy"/>
                     </connections>
@@ -290,6 +305,5 @@
     <resources>
         <image name="BeastGreen" width="375" height="812"/>
         <image name="How to beast" width="319" height="274"/>
-        <image name="LegPress" width="275" height="275"/>
     </resources>
 </document>
