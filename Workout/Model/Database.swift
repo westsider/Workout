@@ -17,6 +17,7 @@ class Exercises: Object {
     @objc dynamic var date:Date?
     @objc dynamic var amTraining = false
     @objc dynamic var taskID     = NSUUID().uuidString
+    @objc dynamic var videoFile = ""
     
     func addInitialDate() {
         
@@ -37,6 +38,7 @@ class Exercises: Object {
             anExercise.reps = each.reps
             anExercise.weight = each.weight
             anExercise.taskID = NSUUID().uuidString
+            anExercise.videoFile = each.videoFile
             try! realm.write({
                 realm.add(anExercise)
             })

@@ -55,7 +55,6 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
         tableview.reloadData()
         
         if workoutComplete {
-           // Exercises().newDateFor(group: tasks.last!.group, debug: false)
            segueMainVC()
         }
     }
