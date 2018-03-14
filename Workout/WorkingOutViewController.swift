@@ -44,11 +44,12 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
         cell.textLabel?.text = tasks[indexPath.row].type
         cell.detailTextLabel?.text = setDetailForTableview(row: indexPath.row)
-        cell.imageView?.image = #imageLiteral(resourceName: "LegPress")
+        cell.imageView?.image = #imageLiteral(resourceName: "iconGrey")
         let answer = Utilities().lastUpdateWasToday(dateToCheck: tasks[indexPath.row].date! , debug: true)
         if answer {
             cell.textLabel?.attributedText =  NSAttributedString(string: setDetailForTableview(row: indexPath.row), attributes: attributes )
             cell.detailTextLabel?.attributedText =  NSAttributedString(string: tasks[indexPath.row].type, attributes: attributes )
+            cell.imageView?.image = #imageLiteral(resourceName: "icon")
         }
         return cell
     }
