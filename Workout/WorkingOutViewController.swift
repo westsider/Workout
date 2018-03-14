@@ -14,6 +14,15 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var tableview: UITableView!
     var tasks = Exercises().getNextWorkout(debug: false)
     var exercisesCompleted:[Int] = []
+    let attributes: [NSAttributedStringKey: Any] =
+        [NSAttributedStringKey.font: UIFont(name: "PingFangHK-Regular", size: 17)!,
+         NSAttributedStringKey.foregroundColor : #colorLiteral(red: 0.449757278, green: 0.7243286371, blue: 0.2090303898, alpha: 1),
+         NSAttributedStringKey.strikethroughStyle: NSUnderlineStyle.styleSingle.rawValue]
+    
+    let standardAtt: [NSAttributedStringKey: Any] =
+        [NSAttributedStringKey.font: UIFont(name: "PingFangHK-Regular", size: 17)!,
+         NSAttributedStringKey.foregroundColor : UIColor.black,
+         NSAttributedStringKey.strikethroughStyle: NSUnderlineStyle.styleSingle.rawValue]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +46,10 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
         cell.detailTextLabel?.text = setDetailForTableview(row: indexPath.row)
         cell.imageView?.image = #imageLiteral(resourceName: "LegPress")
         let answer = Utilities().lastUpdateWasToday(dateToCheck: tasks[indexPath.row].date! , debug: true)
-        if answer { cell.contentView.backgroundColor = #colorLiteral(red: 0.6610911489, green: 0.8887128234, blue: 0.296472311, alpha: 1) }
+        if answer {
+            cell.textLabel?.attributedText =  NSAttributedString(string: setDetailForTableview(row: indexPath.row), attributes: attributes )
+            cell.detailTextLabel?.attributedText =  NSAttributedString(string: tasks[indexPath.row].type, attributes: attributes )
+        }
         return cell
     }
 

@@ -9,7 +9,7 @@
 // [X] built in vide play button
 // [X] video UI works in horizontal
 // [X] unwind this vc
-// [ ] mark items done with line through
+// [X] mark items done with line through
 // [ ] icons for exercises
 
 import UIKit
@@ -31,6 +31,13 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var tasksCompleted:[Int] = []
     var exercisesCompleted:[Int] = []
     var player: AVPlayer?
+    let attributes: [NSAttributedStringKey: Any] =
+        [NSAttributedStringKey.font: UIFont(name: "PingFangHK-Regular", size: 17)!,
+         NSAttributedStringKey.foregroundColor :  #colorLiteral(red: 0.449757278, green: 0.7243286371, blue: 0.2090303898, alpha: 1),
+         NSAttributedStringKey.strikethroughStyle: NSUnderlineStyle.styleSingle.rawValue]
+    let standardAtt: [NSAttributedStringKey: Any] =
+        [NSAttributedStringKey.font: UIFont(name: "PingFangHK-Regular", size: 17)!,
+         NSAttributedStringKey.foregroundColor : UIColor.black]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,9 +80,12 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
-        cell.textLabel?.text = "Set \(repsIntArray[indexPath.row] + 1)"
-        if tasksCompleted.contains(indexPath.row) { cell.contentView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) }
+        cell.textLabel?.attributedText = NSAttributedString(string: "Set \(repsIntArray[indexPath.row] + 1)", attributes: standardAtt )
+        
+        if tasksCompleted.contains(indexPath.row) { cell.textLabel?.attributedText =  NSAttributedString(string: "Set \(repsIntArray[indexPath.row] + 1)", attributes: attributes )
+        }
         return cell
     }
 
