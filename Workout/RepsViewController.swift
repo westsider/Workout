@@ -5,14 +5,15 @@
 //  Created by Warren Hansen on 3/7/18.
 //  Copyright © 2018 Warren Hansen. All rights reserved.
 //
-// [ ] refernce video file
-// [ ] built in vide play button
-// [ ] video UI works in horizontal
+// [X] refernce video file
+// [X] built in vide play button
+// [X] video UI works in horizontal
+// [ ] unwind this vc
 
 import UIKit
 import RealmSwift
 import AVKit
-
+import AVFoundation
 
 class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -35,7 +36,6 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         task = Exercises().getExerciseBy(taskID: taskID, debug: true)
         populateTableview()
         stepper.value = Double((task?.weight)!)
-        initializeVideoPlayerWithVideo()
     }
     
     @IBAction func workoutCompletedAction(_ sender: Any) {
@@ -51,38 +51,20 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     @IBAction func playVideoButtonTapped(_ sender: Any) {
-        player?.play()
+        playLocalVideo()
     }
     
-    
-    func initializeVideoPlayerWithVideo() {
-        
-        // get the path string for the video from assets
-        guard let videoFile = task?.videoFile else {
-            print("videoFile is empty")
-            //TODO: - alert textfield empty
-            return
+    func playLocalVideo() {
+      
+        guard let fileName = task?.videoFile else { return }
+        guard let filePath:String = Bundle.main.path(forResource: fileName, ofType: "mp4") else {return}
+        let videoUrl = URL(fileURLWithPath: filePath)
+        let player = AVPlayer(url: videoUrl)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        self.present(playerViewController, animated: true) {
+            playerViewController.player!.play()
         }
-        let videoString:String? = Bundle.main.path(forResource: videoFile, ofType: "mp4")
-        guard let unwrappedVideoPath = videoString else {return}
-        
-        // convert the path string to a url
-        let videoUrl = URL(fileURLWithPath: unwrappedVideoPath)
-        
-        // initialize the video player with the url
-        self.player = AVPlayer(url: videoUrl)
-        
-        // create a video layer for the player
-        let layer: AVPlayerLayer = AVPlayerLayer(player: player)
-        
-        // make the layer the same size as the container view
-        layer.frame = videoViewContainer.bounds
-        
-        // make the video fill the layer as much as possible while keeping its aspect size
-        layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        
-        // add the layer to the container view
-        videoViewContainer.layer.addSublayer(layer)
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -150,7 +132,6 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     private func segueMainVC() {
         let myVC:MainViewController = storyboard?.instantiateViewController(withIdentifier: "workoutVC") as! MainViewController
-        // clear amTraining from this group
         Exercises().clearAmTrainingFromGroup(group: (task?.group)!, debug: true)
         navigationController?.pushViewController(myVC, animated: true)
     }
