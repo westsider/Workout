@@ -8,7 +8,9 @@
 // [X] refernce video file
 // [X] built in vide play button
 // [X] video UI works in horizontal
-// [ ] unwind this vc
+// [X] unwind this vc
+// [ ] mark items done with line through
+// [ ] icons for exercises
 
 import UIKit
 import RealmSwift
@@ -130,15 +132,12 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     private func segueMainVC() {
-        let myVC:MainViewController = storyboard?.instantiateViewController(withIdentifier: "workoutVC") as! MainViewController
         Exercises().clearAmTrainingFromGroup(group: (task?.group)!, debug: true)
-        navigationController?.pushViewController(myVC, animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     private func segueToWorkoutVC() {
-        let myVC:WorkingOutViewController = storyboard?.instantiateViewController(withIdentifier: "WorkoutsVC") as! WorkingOutViewController
-        myVC.exercisesCompleted = exercisesCompleted
-        navigationController?.pushViewController(myVC, animated: true)
+        navigationController?.popViewController(animated: true)
     }
 }
 

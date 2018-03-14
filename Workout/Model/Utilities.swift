@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 class Utilities {
-
+    
     let formatter = DateFormatter()
     let today = Date()
     
@@ -52,5 +52,18 @@ class Utilities {
         formatter.dateFormat = "MM/dd  h:mm a"
         let currentTimeStr = formatter.string(from: date)
         return currentTimeStr
+    }
+    
+    func lastUpdateWasToday(dateToCheck:Date?, debug: Bool) -> Bool {
+        let calendar = NSCalendar.current
+        var answer:Bool = false
+        if let lastDate = dateToCheck {
+            if (calendar.isDateInToday(lastDate)) {
+                answer =  true
+                if ( debug ) { print("\ntoday is \(Utilities().convertToStringNoTimeFrom(date: today)) and lastUpdate was \(lastDate)\nit's \(answer) that we are current")
+                }
+            }
+        }
+        return answer
     }
 }

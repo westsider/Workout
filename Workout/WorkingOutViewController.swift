@@ -22,6 +22,11 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableview.reloadData()
+        checkIfAllExercisesComplete(debug: true)
+    }
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count
     }
@@ -31,7 +36,8 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
         cell.textLabel?.text = tasks[indexPath.row].type
         cell.detailTextLabel?.text = setDetailForTableview(row: indexPath.row)
         cell.imageView?.image = #imageLiteral(resourceName: "LegPress")
-        if exercisesCompleted.contains(indexPath.row) { cell.contentView.backgroundColor = #colorLiteral(red: 0.6610911489, green: 0.8887128234, blue: 0.296472311, alpha: 1) }
+        let answer = Utilities().lastUpdateWasToday(dateToCheck: tasks[indexPath.row].date! , debug: true)
+        if answer { cell.contentView.backgroundColor = #colorLiteral(red: 0.6610911489, green: 0.8887128234, blue: 0.296472311, alpha: 1) }
         return cell
     }
 

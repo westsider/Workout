@@ -39,6 +39,7 @@ class Exercises: Object {
             anExercise.weight = each.weight
             anExercise.taskID = NSUUID().uuidString
             anExercise.videoFile = each.videoFile
+            anExercise.date = Utilities().convertToDateFrom(string: "2017/01/10", debug: false)
             try! realm.write({
                 realm.add(anExercise)
             })
@@ -155,7 +156,6 @@ class Exercises: Object {
         // get last tate from realm
         let results = Exercises().getExercises(debug: false).sorted(byKeyPath: "date", ascending: true)
         
-        // if last date nil set workout A to button,
         guard let lastDate = results.last?.date else {
             return answer
         }
@@ -163,6 +163,12 @@ class Exercises: Object {
             return answer
         }
         answer = "Last Workout: \(lastGroup) \t\(Utilities().convertToLocal(date: lastDate))"
+        
+        // if last date was the initial valuse, say first workout
+        if lastDate == Utilities().convertToDateFrom(string: "2017/01/10", debug: false) {
+            answer = "This is your first workout!"
+        }
+        
         return answer
     }
 }
