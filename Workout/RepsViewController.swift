@@ -17,7 +17,6 @@ import AVFoundation
 
 class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var videoViewContainer: UIView!
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var weightLable: UILabel!
     @IBOutlet weak var workOutComplereBttn: UIButton!

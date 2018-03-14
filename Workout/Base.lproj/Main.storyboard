@@ -173,7 +173,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pQp-4r-ZUd">
-                                <rect key="frame" x="8" y="246" width="375" height="250"/>
+                                <rect key="frame" x="8" y="170" width="375" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="250" id="FLo-Lj-rYC"/>
@@ -195,7 +195,7 @@
                                 </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6Ca-Zd-9Eh" userLabel="Buttons Stack View">
-                                <rect key="frame" x="8" y="512" width="359" height="40"/>
+                                <rect key="frame" x="8" y="436" width="359" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96d-aJ-ilw">
                                         <rect key="frame" x="0.0" y="0.0" width="114.5" height="40"/>
@@ -222,8 +222,8 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wtV-n1-co6">
-                                <rect key="frame" x="20" y="572" width="335" height="75"/>
-                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="20" y="496" width="335" height="75"/>
+                                <color key="backgroundColor" red="0.661091148853302" green="0.88871282339096069" blue="0.29647231101989746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="4xp-2I-kUX"/>
                                 </constraints>
@@ -235,16 +235,17 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="JY9-7n-g3R" userLabel="Video Stack View">
-                                <rect key="frame" x="8" y="27" width="359" height="207"/>
+                                <rect key="frame" x="20" y="70" width="335" height="75"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSB-GY-oL0">
-                                        <rect key="frame" x="0.0" y="0.0" width="359" height="177"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gzy-0W-Mlx">
-                                        <rect key="frame" x="0.0" y="177" width="359" height="30"/>
-                                        <state key="normal" title="Play">
-                                            <color key="titleColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="75"/>
+                                        <color key="backgroundColor" red="0.37749332189559937" green="0.66953021287918091" blue="0.17940548062324524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="t33-TG-xV2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="17"/>
+                                        <state key="normal" title="Video Walk Through">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="playVideoButtonTapped:" destination="Rpj-qr-KWT" eventType="touchUpInside" id="kfa-LA-rFm"/>
@@ -255,17 +256,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7V4-Pw-AnA" firstAttribute="trailing" secondItem="JY9-7n-g3R" secondAttribute="trailing" constant="8" id="2zT-pe-C0e"/>
+                            <constraint firstItem="7V4-Pw-AnA" firstAttribute="trailing" secondItem="JY9-7n-g3R" secondAttribute="trailing" constant="20" id="2zT-pe-C0e"/>
                             <constraint firstItem="7V4-Pw-AnA" firstAttribute="trailing" secondItem="6Ca-Zd-9Eh" secondAttribute="trailing" constant="8" id="9Ur-Kc-nCB"/>
                             <constraint firstItem="wtV-n1-co6" firstAttribute="top" secondItem="6Ca-Zd-9Eh" secondAttribute="bottom" constant="20" id="Dev-6n-1Q1"/>
                             <constraint firstItem="pQp-4r-ZUd" firstAttribute="trailing" secondItem="7V4-Pw-AnA" secondAttribute="trailing" constant="8" id="FmE-Sg-qzK"/>
-                            <constraint firstItem="JY9-7n-g3R" firstAttribute="leading" secondItem="7V4-Pw-AnA" secondAttribute="leading" constant="8" id="HwK-jC-K3y"/>
+                            <constraint firstItem="JY9-7n-g3R" firstAttribute="leading" secondItem="7V4-Pw-AnA" secondAttribute="leading" constant="20" id="HwK-jC-K3y"/>
                             <constraint firstItem="wtV-n1-co6" firstAttribute="leading" secondItem="7V4-Pw-AnA" secondAttribute="leading" constant="20" id="MSV-9h-v4E"/>
-                            <constraint firstAttribute="bottom" secondItem="wtV-n1-co6" secondAttribute="bottom" constant="20" symbolic="YES" id="QZ6-Kg-iQK"/>
-                            <constraint firstItem="JY9-7n-g3R" firstAttribute="top" secondItem="7V4-Pw-AnA" secondAttribute="top" constant="7" id="VBX-BT-AoC"/>
+                            <constraint firstAttribute="bottom" secondItem="wtV-n1-co6" secondAttribute="bottom" priority="250" constant="20" symbolic="YES" id="QZ6-Kg-iQK"/>
+                            <constraint firstItem="JY9-7n-g3R" firstAttribute="top" secondItem="7V4-Pw-AnA" secondAttribute="top" priority="750" constant="50" id="VBX-BT-AoC"/>
                             <constraint firstItem="6Ca-Zd-9Eh" firstAttribute="top" secondItem="pQp-4r-ZUd" secondAttribute="bottom" constant="16" id="Vdp-TV-5d9"/>
                             <constraint firstItem="pQp-4r-ZUd" firstAttribute="leading" secondItem="7V4-Pw-AnA" secondAttribute="leading" constant="8" id="Zl2-QE-gxj"/>
-                            <constraint firstItem="pQp-4r-ZUd" firstAttribute="top" secondItem="JY9-7n-g3R" secondAttribute="bottom" constant="12" id="gW5-cb-90R"/>
+                            <constraint firstItem="pQp-4r-ZUd" firstAttribute="top" secondItem="JY9-7n-g3R" secondAttribute="bottom" constant="25" id="gW5-cb-90R"/>
                             <constraint firstItem="6Ca-Zd-9Eh" firstAttribute="leading" secondItem="7V4-Pw-AnA" secondAttribute="leading" constant="8" id="gf8-Qy-WX1"/>
                             <constraint firstItem="7V4-Pw-AnA" firstAttribute="trailing" secondItem="wtV-n1-co6" secondAttribute="trailing" constant="20" id="wvd-Gp-JKg"/>
                         </constraints>
@@ -274,7 +275,6 @@
                     <connections>
                         <outlet property="stepper" destination="nfw-Bn-6Hv" id="FSU-Gr-qlD"/>
                         <outlet property="tableview" destination="pQp-4r-ZUd" id="hwu-VY-VgV"/>
-                        <outlet property="videoViewContainer" destination="aSB-GY-oL0" id="ykR-bC-lDW"/>
                         <outlet property="weightLable" destination="E0D-cN-QDA" id="f0K-b8-XK4"/>
                         <outlet property="workOutComplereBttn" destination="wtV-n1-co6" id="bBV-eg-qMy"/>
                     </connections>
