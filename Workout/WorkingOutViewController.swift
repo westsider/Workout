@@ -29,11 +29,16 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
         if let group = tasks.last?.group {
             title = "Workout \(group)"
         }
+        UIApplication.shared.isIdleTimerDisabled = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         tableview.reloadData()
         checkIfAllExercisesComplete(debug: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        UIApplication.shared.isIdleTimerDisabled = false
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,7 +79,7 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
         tableview.reloadData()
         
         if workoutComplete {
-           segueMainVC()
+            segueMainVC()
         }
     }
     

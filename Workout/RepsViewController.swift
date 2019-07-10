@@ -41,6 +41,11 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         task = Exercises().getExerciseBy(taskID: taskID, debug: true)
         populateTableview()
         stepper.value = Double((task?.weight)!)
+        UIApplication.shared.isIdleTimerDisabled = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        UIApplication.shared.isIdleTimerDisabled = false
     }
     
     @IBAction func workoutCompletedAction(_ sender: Any) {
@@ -121,6 +126,8 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableview.reloadData()
         
         if workoutComplete {
+            // get total weight lifted
+            //Alert.showBasic(title: "Finished", message: "We Finished and have lifted")
             segueMainVC()
         } else {
             segueToWorkoutVC()
