@@ -5,12 +5,9 @@
 //  Created by Warren Hansen on 3/7/18.
 //  Copyright © 2018 Warren Hansen. All rights reserved.
 //
-// [X] refernce video file
-// [X] built in vide play button
-// [X] video UI works in horizontal
-// [X] unwind this vc
-// [X] mark items done with line through
-// [ ] icons for exercises
+// [ ] submit to app store
+// [ ] add beginner workout
+// [ ] add warm up
 
 import UIKit
 import RealmSwift
@@ -31,13 +28,13 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var tasksCompleted:[Int] = []
     var exercisesCompleted:[Int] = []
     var player: AVPlayer?
-    let attributes: [NSAttributedStringKey: Any] =
-        [NSAttributedStringKey.font: UIFont(name: "PingFangHK-Regular", size: 17)!,
-         NSAttributedStringKey.foregroundColor :  #colorLiteral(red: 0.449757278, green: 0.7243286371, blue: 0.2090303898, alpha: 1),
-         NSAttributedStringKey.strikethroughStyle: NSUnderlineStyle.styleSingle.rawValue]
-    let standardAtt: [NSAttributedStringKey: Any] =
-        [NSAttributedStringKey.font: UIFont(name: "PingFangHK-Regular", size: 17)!,
-         NSAttributedStringKey.foregroundColor : UIColor.black]
+    let attributes: [NSAttributedString.Key: Any] =
+        [NSAttributedString.Key.font: UIFont(name: "PingFangHK-Regular", size: 17)!,
+         NSAttributedString.Key.foregroundColor :  #colorLiteral(red: 0.449757278, green: 0.7243286371, blue: 0.2090303898, alpha: 1),
+         NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue]
+    let standardAtt: [NSAttributedString.Key: Any] =
+        [NSAttributedString.Key.font: UIFont(name: "PingFangHK-Regular", size: 17)!,
+         NSAttributedString.Key.foregroundColor : UIColor.black]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +78,7 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "Cell")
         cell.textLabel?.attributedText = NSAttributedString(string: "Set \(repsIntArray[indexPath.row] + 1)", attributes: standardAtt )
         
         if tasksCompleted.contains(indexPath.row) { cell.textLabel?.attributedText =  NSAttributedString(string: "Set \(repsIntArray[indexPath.row] + 1)", attributes: attributes )

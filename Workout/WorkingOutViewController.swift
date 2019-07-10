@@ -14,15 +14,15 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var tableview: UITableView!
     var tasks = Exercises().getNextWorkout(debug: false)
     var exercisesCompleted:[Int] = []
-    let attributes: [NSAttributedStringKey: Any] =
-        [NSAttributedStringKey.font: UIFont(name: "PingFangHK-Regular", size: 17)!,
-         NSAttributedStringKey.foregroundColor : #colorLiteral(red: 0.449757278, green: 0.7243286371, blue: 0.2090303898, alpha: 1),
-         NSAttributedStringKey.strikethroughStyle: NSUnderlineStyle.styleSingle.rawValue]
+    let attributes: [NSAttributedString.Key: Any] =
+        [NSAttributedString.Key.font: UIFont(name: "PingFangHK-Regular", size: 17)!,
+         NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.449757278, green: 0.7243286371, blue: 0.2090303898, alpha: 1),
+         NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue]
     
-    let standardAtt: [NSAttributedStringKey: Any] =
-        [NSAttributedStringKey.font: UIFont(name: "PingFangHK-Regular", size: 17)!,
-         NSAttributedStringKey.foregroundColor : UIColor.black,
-         NSAttributedStringKey.strikethroughStyle: NSUnderlineStyle.styleSingle.rawValue]
+    let standardAtt: [NSAttributedString.Key: Any] =
+        [NSAttributedString.Key.font: UIFont(name: "PingFangHK-Regular", size: 17)!,
+         NSAttributedString.Key.foregroundColor : UIColor.black,
+         NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +41,7 @@ class WorkingOutViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "Cell")
         cell.textLabel?.text = tasks[indexPath.row].type
         cell.detailTextLabel?.text = setDetailForTableview(row: indexPath.row)
         cell.imageView?.image = #imageLiteral(resourceName: "iconGrey")
