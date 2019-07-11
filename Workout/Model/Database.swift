@@ -155,14 +155,13 @@ class Exercises: Object {
         var answer = "This is your first workout!"
         // get last tate from realm
         let results = Exercises().getExercises(debug: false).sorted(byKeyPath: "date", ascending: true)
-        
         guard let lastDate = results.last?.date else {
             return answer
         }
         guard let lastGroup = results.last?.group else {
             return answer
         }
-        answer = "Last Workout: \(lastGroup) \t\(Utilities().convertToLocal(date: lastDate))"
+        answer = "Last Workout: \(lastGroup) \t\t\(Utilities().convertToLocal(date: lastDate)) \t\t\(addCommaTo(numbers: sumWeight())) lbs"
         
         // if last date was the initial valuse, say first workout
         if lastDate == Utilities().convertToDateFrom(string: "2017/01/10", debug: false) {
@@ -170,6 +169,23 @@ class Exercises: Object {
         }
         
         return answer
+    }
+    
+    func sumWeight() -> Int {
+        let results = Exercises().getExercises(debug: false)
+        let weights:[Int] = results.map { (Exercises) -> Int in
+            Exercises.weight
+        }
+        return weights.reduce(0, +)
+    }
+    
+    func addCommaTo(numbers: Int)-> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 0;
+        formatter.locale = Locale.current
+        guard let formattedSTring = formatter.string(from: NSNumber(value: numbers)) else { return "???"}
+        return formattedSTring
     }
 }
 

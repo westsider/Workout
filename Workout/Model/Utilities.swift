@@ -49,7 +49,7 @@ class Utilities {
     }
     
     func convertToLocal(date:Date)-> String {
-        formatter.dateFormat = "MM/dd  h:mm a"
+        formatter.dateFormat = "MM/dd"
         let currentTimeStr = formatter.string(from: date)
         return currentTimeStr
     }

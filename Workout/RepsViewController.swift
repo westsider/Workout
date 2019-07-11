@@ -126,9 +126,7 @@ class RepsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableview.reloadData()
         
         if workoutComplete {
-            // get total weight lifted
-            //Alert.showBasic(title: "Finished", message: "We Finished and have lifted")
-            segueMainVC()
+            segueMainVC() 
         } else {
             segueToWorkoutVC()
         }

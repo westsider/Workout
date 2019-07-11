@@ -11,12 +11,10 @@ import UIKit
 class Alert {
     
     class func showBasic(title:String, message: String) {
-        
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         UIApplication.topViewController()?.present(alert, animated: true, completion: nil)
     }
-    
 }
 
 // this is to call an alert from the model
