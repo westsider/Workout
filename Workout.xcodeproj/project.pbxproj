@@ -19,6 +19,7 @@
 		0D95EAE62055B3F600252AE2 /* Videos in Resources */ = {isa = PBXBuildFile; fileRef = 0D95EAE52055B3F600252AE2 /* Videos */; };
 		0DE1E7D4204F6919007E5714 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE1E7D3204F6918007E5714 /* Database.swift */; };
 		0DE1E7DA204F6CA1007E5714 /* WorkingOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE1E7D9204F6CA1007E5714 /* WorkingOutViewController.swift */; };
+		98235CD02BD032BD00EE2111 /* WarmUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98235CCF2BD032BD00EE2111 /* WarmUpView.swift */; };
 		98965F0D2BACAA5D0050CD75 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 98965F0C2BACAA5D0050CD75 /* Realm */; };
 		98965F0F2BACAA5D0050CD75 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 98965F0E2BACAA5D0050CD75 /* RealmSwift */; };
 		98B0236722D6785E00D67FFC /* Alert View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B0236622D6785E00D67FFC /* Alert View.swift */; };
@@ -39,6 +40,7 @@
 		0D95EAE52055B3F600252AE2 /* Videos */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Videos; sourceTree = "<group>"; };
 		0DE1E7D3204F6918007E5714 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		0DE1E7D9204F6CA1007E5714 /* WorkingOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingOutViewController.swift; sourceTree = "<group>"; };
+		98235CCF2BD032BD00EE2111 /* WarmUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpView.swift; sourceTree = "<group>"; };
 		98B0236622D6785E00D67FFC /* Alert View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert View.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				0D1EBAC1204D18070092B351 /* Main.storyboard */,
+				98235CCF2BD032BD00EE2111 /* WarmUpView.swift */,
 				0D1EBABF204D18070092B351 /* MainViewController.swift */,
 				0DE1E7D9204F6CA1007E5714 /* WorkingOutViewController.swift */,
 				0D1097122050815600F28EA7 /* RepsViewController.swift */,
@@ -184,6 +187,7 @@
 			files = (
 				0DE1E7D4204F6919007E5714 /* Database.swift in Sources */,
 				0DE1E7DA204F6CA1007E5714 /* WorkingOutViewController.swift in Sources */,
+				98235CD02BD032BD00EE2111 /* WarmUpView.swift in Sources */,
 				0D0049A4204F922700AD5E98 /* Utilities.swift in Sources */,
 				98B0236722D6785E00D67FFC /* Alert View.swift in Sources */,
 				0D1EBAC6204D18070092B351 /* Workout.xcdatamodeld in Sources */,

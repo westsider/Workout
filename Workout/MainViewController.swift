@@ -10,6 +10,7 @@
 
 
 import UIKit
+import SwiftUI
 
 class MainViewController: UIViewController {
 
@@ -31,7 +32,14 @@ class MainViewController: UIViewController {
         segueToWorkoutVC()
     }
     
-    @IBAction func offDatAction(_ sender: Any) {
+    // Dynamic Warm Up Segue to SwiftUI
+    @IBAction func offDatAction(_ sender: UIButton) {
+        let guiView = WarmUpView(dismissAction: {
+            self.dismiss(animated: true)
+        })
+        let hostingController = UIHostingController(rootView: guiView)
+        hostingController.modalPresentationStyle = .fullScreen
+        self.present(hostingController, animated: true)
     }
     
     func getWorkoutData() {
