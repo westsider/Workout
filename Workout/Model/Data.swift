@@ -28,6 +28,7 @@ class Data {
         group.append(Exercise(group: "A", type: "DB Seal Row", sets: 4, reps: 8, weight: 40, videoFile: "Videos/workoutA/DumbbellSealRow"))
         group.append(Exercise(group: "A", type: "One Arm Delta Flys", sets: 3, reps: 8, weight: 20, videoFile: "Videos/workoutA/1_ArmDeltFly"))
         group.append(Exercise(group: "A", type: "BB Curls", sets: 3, reps: 12, weight: 55, videoFile: "Videos/workoutA/BarbellBicepCurl"))
+        group.append(Exercise(group: "A", type: "Jake G", sets: 3, reps: 12, weight: 10, videoFile: "Videos/workoutA/BarbellBicepCurl"))
         
         // Group B
         group.append(Exercise(group: "B", type: "Bulgarian Split Squat", sets: 4, reps: 8, weight: 20, videoFile: "Videos/workoutB/BulgarianSplitSquat"))
@@ -47,3 +48,14 @@ class Data {
     }
     
 }
+
+/*
+    Warm ups
+ Band Pull aparts * 20
+ Glute Bridges * 20
+ Hip Flexor Stretch * 3 each side
+ Yoga Push Up * 10
+ Fire Hydrant 10 each side
+ 
+ https://vimeo.com/237828102/854ab8806d
+ */
