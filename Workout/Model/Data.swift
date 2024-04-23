@@ -28,6 +28,7 @@ class Data {
         group.append(Exercise(group: "A", type: "DB Seal Row", sets: 4, reps: 8, weight: 40, videoFile: "Videos/workoutA/DumbbellSealRow"))
         group.append(Exercise(group: "A", type: "One Arm Delta Flys", sets: 3, reps: 8, weight: 20, videoFile: "Videos/workoutA/1_ArmDeltFly"))
         group.append(Exercise(group: "A", type: "BB Curls", sets: 3, reps: 12, weight: 55, videoFile: "Videos/workoutA/BarbellBicepCurl"))
+        group.append(Exercise(group: "C", type: "Hanging Leg Raise ", sets: 3, reps: 8, weight: 0, videoFile: "Videos/workoutC/HangingLegRaise"))
         group.append(Exercise(group: "A", type: "Jake G", sets: 3, reps: 12, weight: 10, videoFile: "Videos/workoutA/BarbellBicepCurl"))
         
         // Group B
@@ -36,12 +37,14 @@ class Data {
         group.append(Exercise(group: "B", type: "Lat Pulldown", sets: 4, reps: 8, weight: 80, videoFile: "Videos/workoutB/LatPulldown"))
         group.append(Exercise(group: "B", type: "Rear Delt Fly", sets: 3, reps: 12, weight: 30, videoFile: "Videos/workoutB/DumbbellRearDeltFly"))
         group.append(Exercise(group: "B", type: "Decline Sit-Up", sets: 3, reps: 12, weight: 205, videoFile: "Videos/workoutB/DeclineSitUp"))
+        group.append(Exercise(group: "C", type: "Hanging Leg Raise ", sets: 3, reps: 8, weight: 0, videoFile: "Videos/workoutC/HangingLegRaise"))
         
         // Group B
         group.append(Exercise(group: "C", type: "Leg Press ", sets: 4, reps: 8, weight: 180, videoFile: "Videos/workoutC/LegPress"))
         group.append(Exercise(group: "C", type: "Incline Chest Machine", sets: 4, reps: 8, weight: 135, videoFile: "Videos/workoutC/InclineChestPressMachine"))
         group.append(Exercise(group: "C", type: "Back Row Machine", sets: 4, reps: 8, weight: 140, videoFile: "Videos/workoutC/BackRowMachine"))
         group.append(Exercise(group: "C", type: "Shoulder Press Machine", sets: 4, reps: 12, weight: 110, videoFile: "Videos/workoutC/ShoulderPressMachine"))
+        group.append(Exercise(group: "B", type: "Decline Sit-Up", sets: 3, reps: 12, weight: 205, videoFile: "Videos/workoutB/DeclineSitUp"))
         group.append(Exercise(group: "C", type: "Hanging Leg Raise ", sets: 3, reps: 8, weight: 0, videoFile: "Videos/workoutC/HangingLegRaise"))
         
       return group
